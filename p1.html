@@ -1,0 +1,38 @@
+<html>
+
+<head>
+</head>
+<body>
+	<div class="person">
+		<h1 class="name">Mayuri</h1>
+		<h1 class="name">Riya</h1>
+		<h1 class="name">Prajakta</h1>
+	</div>
+
+	<script>
+		let ele = document.getElementsByClassName("name")
+		let info = [
+			"Mayuri is MCA student in YSPM satara.... passionate about java",
+			"Riya is 12th student in shivaji college ....passionate about MPSC",
+			"Prajakta is also MCA student....passionate about ReactJS",
+		]
+		
+		for(let i=0;i<ele.length;i++){
+			let text = document.createElement("h2")
+			let data = document.createTextNode(info[i])
+			text.appendChild(data)
+			ele[i].addEventListener("mouseover",()=>{
+				ele[i].style.color = "blue"
+				document.body.appendChild(text)
+				text.style.color = "red"
+				
+			})
+			ele[i].addEventListener("mouseout",()=>{
+				text.textContent=""
+				ele[i].style.color = "black"
+			})	
+		}
+		
+	</script>
+</body>
+</html>
