@@ -1,38 +1,72 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>To-Do App</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 40px;
+    }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 10px;
+    }
+    button {
+      padding: 8px 12px;
+      margin-left: 10px;
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+      width: 5rem;
+    }
+    .button1{
+      margin-left: 140px;
+      display: flex;
+      align-items: center;
+      margin-top: -30px;
+    }
+   
+  </style>
 </head>
 <body>
-	<div class="person">
-		<h1 class="name">Mayuri</h1>
-		<h1 class="name">Riya</h1>
-		<h1 class="name">Prajakta</h1>
-	</div>
+  <h1>To-Do List</h1>
 
-	<script>
-		let ele = document.getElementsByClassName("name")
-		let info = [
-			"Mayuri is MCA student in YSPM satara.... passionate about java",
-			"Riya is 12th student in shivaji college ....passionate about MPSC",
-			"Prajakta is also MCA student....passionate about ReactJS",
-		]
-		
-		for(let i=0;i<ele.length;i++){
-			let text = document.createElement("h2")
-			let data = document.createTextNode(info[i])
-			text.appendChild(data)
-			ele[i].addEventListener("mouseover",()=>{
-				ele[i].style.color = "blue"
-				document.body.appendChild(text)
-				text.style.color = "red"
-				
-			})
-			ele[i].addEventListener("mouseout",()=>{
-				text.textContent=""
-				ele[i].style.color = "black"
-			})	
-		}
-		
-	</script>
+  <input id="input" type="text" placeholder="Enter a task">
+  <button id="addBtn">Add</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    let input = document.getElementById("input");
+    let addBtn = document.getElementById("addBtn");
+
+
+    addBtn.addEventListener("click",()=>{
+        let task =input.value.trim()
+        console.log(task);
+    
+
+    let data = document.createElement("h2")
+    data.textContent = task
+    console.log(data);
+
+    let delbtn = document.createElement("button")
+    delbtn.textContent = "delete"
+    delbtn.classList.add("button1")
+    delbtn.addEventListener("click",()=>{
+    console.log(delbtn);
+    data.remove()
+    })
+
+  data.appendChild(delbtn)
+  document.body.appendChild(data)
+  input.value = ""
+    })
+
+  </script>
 </body>
 </html>

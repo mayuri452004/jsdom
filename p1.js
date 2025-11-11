@@ -1,7 +1,14 @@
-let obj1 = {name : "mayuri"};
-let obj2 = {name : "riya"}
-
-function fun(){
-	console.log("mayuri ")
+let obj = {
+	name : "mayuri",
+	age : 21,
+	address : {
+		city : "satara",
+		pin : 415001
+	}
 }
-fun.call(obj1)
+
+let copy = structuredClone(obj)
+copy.address.city = "pune"
+
+console.log(obj.address.city)
+console.log(copy.address.city)
